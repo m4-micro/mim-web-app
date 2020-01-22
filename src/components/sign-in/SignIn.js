@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from "@material-ui/core/styles";
+import {Redirect} from 'react-router-dom';
 
 import Copyright from './../copyright/Copyright';
 import Axios from 'axios';
@@ -62,14 +63,24 @@ class SignIn extends Component {
 
   }
   onTextChange(e) {
-    this.setState({[e.target.name] : e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   signInRequest = (e) => {
     e.preventDefault();
-    Axios.post('https://postman-echo.com/post', this.state).then( response =>{
+    Axios.post('https://postman-echo.com/post', this.state).then(response => {
       console.log(response)
     });
+
+    const loginSuccess = true;
+
+    if (loginSuccess) {
+      // store user dtails
+      this.props.history.push('/home');
+    } else {
+
+    }
+
   }
 
   render() {
@@ -81,7 +92,7 @@ class SignIn extends Component {
     return (
       <Grid container component="main" className={classes.root}>
         <CssBaseline />
-        <Grid item xs={false} sm={4} md={7} className={classes.image}/>
+        <Grid item xs={false} sm={4} md={7} className={classes.image} />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
@@ -100,7 +111,7 @@ class SignIn extends Component {
                 label="Email Address"
                 name="email"
                 value={this.state.email}
-                onChange={e=>this.onTextChange(e)}
+                onChange={e => this.onTextChange(e)}
                 autoComplete="email"
                 autoFocus
               />
@@ -113,7 +124,7 @@ class SignIn extends Component {
                 label="Password"
                 type="password"
                 value={this.state.password}
-                onChange={e=>this.onTextChange(e)}
+                onChange={e => this.onTextChange(e)}
                 id="password"
                 autoComplete="current-password"
               />

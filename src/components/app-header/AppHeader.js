@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 
 
-import Home from './../home/Home'
+import Navigator from '../navigator/Navigator'
 
 class AppHeader extends Component {
   render() {
     return (
       <Fragment>
-        <Home />
+        <Navigator />
         <div>
           {this.props.children}
         </div>
