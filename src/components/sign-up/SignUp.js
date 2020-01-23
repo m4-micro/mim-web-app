@@ -44,7 +44,7 @@ class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      emailId: '',
       password: '',
       firstName: '',
       lastName: '',
@@ -67,7 +67,7 @@ class SignUp extends Component {
 
   onSignUpRequest(e){
     e.preventDefault();
-    Axios.post('https://postman-echo.com/post', this.state).then(response => {
+    Axios.post('http://localhost:8080/mim-auth-service/signin/', this.state).then(response => {
       console.log(response)
     });
 
@@ -84,7 +84,7 @@ class SignUp extends Component {
 
   render() {
     const { classes } = this.props;
-    const { email, password, firstName, lastName, sendUpdates } = this.state;
+    const { emailId, password, firstName, lastName, sendUpdates } = this.state;
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -129,12 +129,12 @@ class SignUp extends Component {
                   variant="outlined"
                   required
                   fullWidth
-                  id="email"
-                  value={email}
+                  id="emailId"
+                  value={emailId}
                   onChange={e => this.onTextChange(e)}
                   label="Email Address"
-                  name="email"
-                  autoComplete="email"
+                  name="emailId"
+                  autoComplete="emailId"
                 />
               </Grid>
               <Grid item xs={12}>

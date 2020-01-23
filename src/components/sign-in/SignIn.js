@@ -57,7 +57,7 @@ class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      emailId: '',
       password: ''
     }
 
@@ -68,7 +68,7 @@ class SignIn extends Component {
 
   signInRequest = (e) => {
     e.preventDefault();
-    Axios.post('https://postman-echo.com/post', this.state).then(response => {
+    Axios.post('http://localhost:8080/mim-auth-service/signin/', this.state).then(response => {
       console.log(response)
     });
 
@@ -107,10 +107,10 @@ class SignIn extends Component {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
+                id="emailId"
                 label="Email Address"
-                name="email"
-                value={this.state.email}
+                name="emailId"
+                value={this.state.emailId}
                 onChange={e => this.onTextChange(e)}
                 autoComplete="email"
                 autoFocus
