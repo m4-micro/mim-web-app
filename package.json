@@ -14,7 +14,7 @@
     "@types/react-dom": "^16.9.4",
     "axios": "^0.19.1",
     "material-ui-icons": "^1.0.0-beta.36",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-history": "^0.18.2",
